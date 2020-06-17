@@ -3,7 +3,7 @@ import Quotebox from "./components/Quotebox";
 
 function App() {
   return (
-    <div className="h-screen bg-red-100">
+    <div className="h-screen bg-red-100 flex justify-center items-center">
       <Quotebox />
     </div>
   );
