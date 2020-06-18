@@ -20,22 +20,35 @@ const Quotebox = () => {
   }, []);
 
   return (
-    <div id="quote-box">
-      {loading ? (
-        <ClipLoader />
-      ) : (
-        <div>
-          <p id="text">{quote}</p>
-          {!!author && <p id="author">- {author}</p>}
+    <div id="quote-box" className="w-6/12 bg-red-500 rounded-lg">
+      <div className="p-8">
+        {loading ? (
+          <div className="text-center">
+            <ClipLoader color="#feb2b2" />
+          </div>
+        ) : (
+          <>
+            <p className="font-sans text-xl text-gray-100 " id="text">
+              {quote}
+            </p>
+            {!!author && (
+              <p
+                className="mt-1 font-serif text-lg text-right text-red-200"
+                id="author"
+              >
+                - {author}
+              </p>
+            )}
+          </>
+        )}
+        <div className="inline-block w-16 align-bottom">
+          <a
+            href={`https://twitter.com/intent/tweet?text=${quote}`}
+            id="tweet-quote"
+          >
+            Tweet
+          </a>
         </div>
-      )}
-      <div>
-        <a
-          href={`https://twitter.com/intent/tweet?text=${quote}`}
-          id="tweet-quote"
-        >
-          Tweet
-        </a>
         <button id="new-quote" onClick={getAndSetNewQuote}>
           New Quote
         </button>
